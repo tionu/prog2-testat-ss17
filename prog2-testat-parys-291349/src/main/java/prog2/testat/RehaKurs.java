@@ -27,4 +27,27 @@ public class RehaKurs {
 		return teilnehmerListe.get(index - 1);
 	}
 
+	public int unter18() {
+		int count = 0;
+
+		for (Teilnehmer teilnehmer : teilnehmerListe) {
+			if (teilnehmer.getAlter() < 18) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	public List<Teilnehmer> getTeilnehmerByAlter(int minAlter, int maxAlter) {
+		List<Teilnehmer> teilnehmerListeByAlter = new ArrayList<Teilnehmer>();
+
+		for (Teilnehmer teilnehmer : teilnehmerListe) {
+			if (teilnehmer.getAlter() >= minAlter && teilnehmer.getAlter() <= maxAlter) {
+				teilnehmerListeByAlter.add(teilnehmer);
+			}
+		}
+
+		return teilnehmerListeByAlter;
+	}
+
 }
